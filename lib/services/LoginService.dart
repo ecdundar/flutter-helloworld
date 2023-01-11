@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:helloworld/models/login/UserLoginRequestModel.dart';
 import 'package:http/http.dart' as http;
 
 class LoginService {
@@ -6,7 +7,7 @@ class LoginService {
   factory LoginService() => _instance ??= new LoginService._();
   LoginService._();
 
-  Future girisYap(String kullaniciAdi, String kullaniciSifre) async {
+  Future girisYap(UserLoginRequestModel model) async {
     Completer c = new Completer();
     try {
       String url = "https://petekapi.burulas.com.tr/users/authenticate";
