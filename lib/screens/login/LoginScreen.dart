@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:helloworld/models/login/UserLoginRequestModel.dart';
 import 'package:helloworld/services/LoginService.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 //DENEME MESAJI
 
 class LoginScreen extends StatefulWidget {
@@ -104,10 +105,24 @@ class _LoginScreenState extends State<LoginScreen> {
             "Lütfen kullanıcı adı ve/veya şifrenizi kontrol ediniz.");
       } else {
         //4) Başarılıysa ikinci ekrana git
-        Navigator.pushReplacementNamed(context, "/Main");
+        saveLoginInfo(model).then((value) {
+          Navigator.pushReplacementNamed(context, "/Main");
+        });
       }
     });
 
     //3) Başarılıysa verileri kaydet
+  }
+
+  Future<bool> saveLoginInfo(UserLoginRequestModel model) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (chkBeniHatirla) {
+      await prefs.setString("KullaniciAdi", model.userName ?? "");
+      await prefs.setString("KullaniciSifre", model.password ?? "");
+      await prefs.setBool("BeniHatirla", chkBeniHatirla);
+    } else {
+      await prefs.setBool("BeniHatirla", false);
+    }
+    return true;
   }
 }
