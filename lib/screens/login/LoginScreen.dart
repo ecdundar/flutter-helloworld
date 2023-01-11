@@ -71,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Expanded(flex: 1, child: Container()),
                     ElevatedButton.icon(
-                      onPressed: () => girisYap,
+                      onPressed: () {
+                        girisYap();
+                      },
                       icon: DynamicIcons.getIconFromName("login"),
                       label: Text("Giriş Yap"),
                     )
