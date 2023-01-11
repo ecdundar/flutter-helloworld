@@ -1,6 +1,5 @@
 import 'package:dynamic_icons/dynamic_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:helloworld/screens/main/MainScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
