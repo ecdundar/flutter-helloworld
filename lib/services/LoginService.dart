@@ -13,12 +13,10 @@ class LoginService {
     Completer c = new Completer();
     try {
       String url = "https://petekapi.burulas.com.tr/users/authenticate";
-      http.post(Uri.parse(url), body: jsonEncode(model), headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }).catchError((onError) {
-        c.completeError('Lütfen internet bağlantınızı kontrol ediniz.');
-      }).then((response) {
+      var reqModel = jsonEncode(model);
+      http.post(Uri.parse(url),
+          body: reqModel,
+          headers: {'Content-Type': 'application/json'}).then((response) {
         if (response.statusCode == 200) {
           var responseModel =
               UserLoginResponseModel.fromJson(jsonDecode(response.body));
