@@ -17,8 +17,14 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool chkBeniHatirla = false;
-  String? kullaniciAdi = null;
-  String? kullaniciSifre = null;
+  String? kullaniciAdi = "flutter@burulas.com.tr";
+  String? kullaniciSifre = "Wh08943?";
+
+  @override
+  void initState() {
+    super.initState();
+    getLoginInfo();
+  }
 
   TextField getUsername() {
     return (TextField(
@@ -124,5 +130,16 @@ class _LoginScreenState extends State<LoginScreen> {
       await prefs.setBool("BeniHatirla", false);
     }
     return true;
+  }
+
+  void getLoginInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    chkBeniHatirla = prefs.getBool("BeniHatirla") ?? false;
+    if (chkBeniHatirla) {
+      kullaniciAdi = prefs.getString("KullaniciAdi") ?? "";
+      kullaniciSifre = prefs.getString("KullaniciSifre") ?? "";
+      setState(() {});
+      //girisYap();
+    }
   }
 }
