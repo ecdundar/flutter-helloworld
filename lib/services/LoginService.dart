@@ -21,9 +21,9 @@ class LoginService {
           var responseModel =
               UserLoginResponseModel.fromJson(jsonDecode(response.body));
           if ((responseModel.token?.isEmpty ?? true) == true) {
-            return c.complete(true);
-          } else {
             return c.complete(false);
+          } else {
+            return c.complete(true);
           }
         } else {
           return c
