@@ -1,7 +1,10 @@
 import 'package:dynamic_icons/dynamic_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:helloworld/models/login/UserLoginRequestModel.dart';
+import 'package:helloworld/services/LoginService.dart';
 //DENEME MESAJI
 
 class LoginScreen extends StatefulWidget {
@@ -73,6 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void girisYap() {
+    //Klavyeyi Kapat.
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+
     //1) Verileri Kontrol ET
     if (kullaniciAdi?.isEmpty == true) {
       EasyLoading.showToast("Lütfen kullanıcı adı giriniz....");
@@ -85,11 +91,23 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     //2) Api yi kontrol et
+    EasyLoading.show(status: "İşleminiz Yapılıyor...");
+    var model = new UserLoginRequestModel(
+        userName: kullaniciAdi, password: kullaniciSifre);
+    LoginService().girisYap(model).catchError((onError) {
+      EasyLoading.dismiss();
+      EasyLoading.showError(onError.toString());
+    }).then((value) {
+      EasyLoading.dismiss();
+      if (value == false) {
+        EasyLoading.showInfo(
+            "Lütfen kullanıcı adı ve/veya şifrenizi kontrol ediniz.");
+      } else {
+        //4) Başarılıysa ikinci ekrana git
+        Navigator.pushReplacementNamed(context, "/Main");
+      }
+    });
 
     //3) Başarılıysa verileri kaydet
-
-    //4) Başarılıysa ikinci ekrana git
-
-    Navigator.pushReplacementNamed(context, "/Main");
   }
 }

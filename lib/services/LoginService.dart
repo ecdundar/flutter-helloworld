@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:helloworld/models/login/UserLoginRequestModel.dart';
+import 'package:helloworld/models/login/UserLoginResponseModel.dart';
 import 'package:http/http.dart' as http;
 
 class LoginService {
@@ -15,8 +16,17 @@ class LoginService {
       http.post(Uri.parse(url), body: jsonEncode(model), headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
+      }).catchError((onError) {
+        c.completeError('Lütfen internet bağlantınızı kontrol ediniz.');
       }).then((response) {
         if (response.statusCode == 200) {
+          var responseModel =
+              UserLoginResponseModel.fromJson(jsonDecode(response.body));
+          if ((responseModel.token?.isEmpty ?? true) == true) {
+            return c.complete(true);
+          } else {
+            return c.complete(false);
+          }
         } else {
           return c
               .completeError('Lütfen internet bağlantınızı kontrol ediniz.');
