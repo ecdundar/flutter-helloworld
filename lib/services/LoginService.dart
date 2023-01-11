@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:helloworld/helpers/SessionHelper.dart';
 import 'package:helloworld/models/login/UserLoginRequestModel.dart';
 import 'package:helloworld/models/login/UserLoginResponseModel.dart';
 import 'package:http/http.dart' as http;
@@ -23,6 +24,7 @@ class LoginService {
           if ((responseModel.token?.isEmpty ?? true) == true) {
             return c.complete(false);
           } else {
+            SessionHelper().userModel = responseModel;
             return c.complete(true);
           }
         } else {
