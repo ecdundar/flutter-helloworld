@@ -1,5 +1,6 @@
 import 'package:dynamic_icons/dynamic_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 //DENEME MESAJI
 
 class LoginScreen extends StatefulWidget {
@@ -10,8 +11,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool chkBeniHatirla = false;
+  String? kullaniciAdi = null;
+  String? kullaniciSifre = null;
+
   TextField getUsername() {
     return (TextField(
+        controller: TextEditingController(text: kullaniciAdi),
+        onChanged: (value) => kullaniciAdi = value.trim(),
         decoration: InputDecoration(
             border: OutlineInputBorder(), labelText: "Kullanıcı Adı")));
   }
@@ -31,6 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   getUsername(),
                   SizedBox(height: 20),
                   TextField(
+                    controller: TextEditingController(text: kullaniciSifre),
+                    onChanged: (value) => kullaniciSifre = value.trim(),
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(), labelText: "Şifre"),
@@ -40,22 +49,37 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.red),
                   ),
                   SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      // Respond to button press
-                      print("button tıklandı");
-                      /*Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MainScreen()));*/
-                      Navigator.pushReplacementNamed(context, "/Main");
-                    },
-                    icon: DynamicIcons.getIconFromName("login"),
-                    label: Text("Giriş Yap"),
-                  ),
+                  Row(children: [
+                    FlutterSwitch(
+                      value: chkBeniHatirla,
+                      onToggle: (value) {
+                        setState(() {
+                          chkBeniHatirla = value;
+                        });
+                      },
+                    ),
+                    Expanded(flex: 1, child: Container()),
+                    ElevatedButton.icon(
+                      onPressed: () => girisYap,
+                      icon: DynamicIcons.getIconFromName("login"),
+                      label: Text("Giriş Yap"),
+                    )
+                  ]),
                   Expanded(flex: 1, child: Container())
                 ],
               ))),
     );
+  }
+
+  void girisYap() {
+    //1) Verileri Kontrol ET
+
+    //2) Api yi kontrol et
+
+    //3) Başarılıysa verileri kaydet
+
+    //4) Başarılıysa ikinci ekrana git
+
+    Navigator.pushReplacementNamed(context, "/Main");
   }
 }

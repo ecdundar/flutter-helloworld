@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dynamic_icons: ^0.0.4
   double_back_to_close_app: ^2.1.0
+  flutter_switch: ^0.3.2
 
 dev_dependencies:
   flutter_test:
