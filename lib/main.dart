@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:helloworld/screens/login/LoginScreen.dart';
 import 'package:helloworld/screens/main/MainScreen.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         initialRoute: "/",
+        builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
           "/Main": (context) => MainScreen()

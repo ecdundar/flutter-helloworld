@@ -1,5 +1,6 @@
 import 'package:dynamic_icons/dynamic_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 //DENEME MESAJI
 
@@ -73,6 +74,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void girisYap() {
     //1) Verileri Kontrol ET
+    if (kullaniciAdi?.isEmpty == true) {
+      EasyLoading.showToast("Lütfen kullanıcı adı giriniz....");
+      return;
+    }
+    if (kullaniciSifre?.isEmpty == true) {
+      EasyLoading.showToast("Lütfen kullanıcı şifrenizi giriniz...",
+          toastPosition: EasyLoadingToastPosition.bottom);
+      return;
+    }
 
     //2) Api yi kontrol et
 
