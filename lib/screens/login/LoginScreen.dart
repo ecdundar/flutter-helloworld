@@ -43,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding:
                   EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(flex: 1, child: Container()),
@@ -67,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         setState(() {
                           chkBeniHatirla = value;
                         });
+                        setState(() {});
                       },
                     ),
                     Expanded(flex: 1, child: Container()),
