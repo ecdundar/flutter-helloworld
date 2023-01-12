@@ -15,7 +15,9 @@ class _ContainerTestScreenState extends State<ContainerTestScreen> {
       color: Colors.yellow,
       child: Container(
           color: Colors.lightBlue,
-          child: Wrap(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
                   flex: 1,
