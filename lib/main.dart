@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:helloworld/screens/login/LoginScreen.dart';
 import 'package:helloworld/screens/main/MainScreen.dart';
 import 'package:helloworld/screens/test/ContainerTestScreen.dart';
+import 'package:helloworld/screens/test/StackTestScreen.dart';
 import 'package:helloworld/screens/test/WrapTestScreen.dart';
 
 void main() {
@@ -19,13 +20,14 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/WrapTest",
+        initialRoute: "/StackTest",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
           "/Main": (context) => MainScreen(),
           "/ContainerTest": (context) => ContainerTestScreen(),
-          "/WrapTest": (context) => WrapTestScreen()
+          "/WrapTest": (context) => WrapTestScreen(),
+          "/StackTest": (context) => StackTestScreen()
         });
   }
 }
