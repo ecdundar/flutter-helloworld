@@ -17,8 +17,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool chkBeniHatirla = false;
-  String? kullaniciAdi = "flutter@burulas.com.tr";
-  String? kullaniciSifre = "Wh08943?";
+  String? kullaniciAdi = "";
+  String? kullaniciSifre = "";
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     getLoginInfo();
   }
 
-  TextField getUsername() {
+  TextField getUsername(BuildContext context) {
     return (TextField(
         controller: TextEditingController(text: kullaniciAdi),
         onChanged: (value) => kullaniciAdi = value.trim(),
@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(flex: 1, child: Container()),
-                  getUsername(),
+                  getUsername(context),
                   SizedBox(height: 20),
                   TextField(
                     controller: TextEditingController(text: kullaniciSifre),
