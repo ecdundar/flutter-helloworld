@@ -12,7 +12,8 @@ class _FittedBoxTestScreenState extends State<FittedBoxTestScreen> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.yellow,
-      child: FittedBox(fit: BoxFit.fill, child: Container(color: Colors.red)),
+      child: FittedBox(fit: BoxFit., child: Image.network(
+            'https://www.burulas.com.tr/wp-content/uploads/revslider/BURULA-ANASAYFA/anasayfa-slider_0001.jpg')),
     );
   }
 }
