@@ -12,6 +12,8 @@ import 'package:helloworld/screens/test/OffstageScreenTest.dart';
 import 'package:helloworld/screens/test/StackTestScreen.dart';
 import 'package:helloworld/screens/test/WrapTestScreen.dart';
 
+import 'screens/test/TransformScreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/Offstage",
+        initialRoute: "/Transform",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
           "/BaselineScreen": (context) => BaselineTestScreen(),
           "/FittedBoxTestScreen": (context) => FittedBoxTestScreen(),
           "/FractionalySizedBox": (context) => FractionalySizedBoxTestScreen(),
-          "/Offstage": ((context) => OffstageScreenTest())
+          "/Offstage": ((context) => OffstageScreenTest()),
+          "/Transform": (context) => TransformScreenTest(),
         });
   }
 }
