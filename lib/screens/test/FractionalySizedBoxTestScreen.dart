@@ -15,8 +15,9 @@ class _FractionalySizedBoxTestScreenState
     return Container(
         color: Colors.yellow,
         child: FractionallySizedBox(
-            widthFactor: 0.5,
-            heightFactor: 0.5,
+            widthFactor: 0.3,
+            heightFactor: 0.3,
+            alignment: Alignment.center,
             child: Container(
               color: Colors.red,
               width: 50,
