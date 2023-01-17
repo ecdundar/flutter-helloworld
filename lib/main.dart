@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:helloworld/screens/login/LoginScreen.dart';
 import 'package:helloworld/screens/main/MainScreen.dart';
+import 'package:helloworld/screens/test/alert/AlertTestScreen.dart';
 import 'package:helloworld/screens/test/layout/single/AlignTestScreen.dart';
 import 'package:helloworld/screens/test/layout/single/AspectRatioTestScreen.dart';
 import 'package:helloworld/screens/test/layout/single/BaselineTestScreen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/Transform",
+        initialRoute: "/Alert",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
           "/FractionalySizedBox": (context) => FractionalySizedBoxTestScreen(),
           "/Offstage": ((context) => OffstageScreenTest()),
           "/Transform": (context) => TransformScreenTest(),
+          "/Alert": (context) => AlertTestScreen(),
         });
   }
 }
