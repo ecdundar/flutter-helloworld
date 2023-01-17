@@ -12,8 +12,8 @@ class _OffstageScreenTestState extends State<OffstageScreenTest> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Offstage(
-      offstage: _isVisible,
+        child: Visibility(
+      visible: true,
       child: SizedBox(
           height: 250, width: 250, child: Container(color: Colors.yellow)),
     ));
