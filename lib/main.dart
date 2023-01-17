@@ -4,7 +4,9 @@ import 'package:helloworld/screens/login/LoginScreen.dart';
 import 'package:helloworld/screens/main/MainScreen.dart';
 import 'package:helloworld/screens/test/AlignTestScreen.dart';
 import 'package:helloworld/screens/test/AspectRatioTestScreen.dart';
+import 'package:helloworld/screens/test/BaselineTestScreen.dart';
 import 'package:helloworld/screens/test/ContainerTestScreen.dart';
+import 'package:helloworld/screens/test/FittedBoxTestScreen.dart';
 import 'package:helloworld/screens/test/StackTestScreen.dart';
 import 'package:helloworld/screens/test/WrapTestScreen.dart';
 
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/AspectRatio",
+        initialRoute: "/BaselineScreen",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
@@ -31,7 +33,9 @@ class MyApp extends StatelessWidget {
           "/WrapTest": (context) => WrapTestScreen(),
           "/StackTest": (context) => StackTestScreen(),
           "/AlignTest": (context) => AlignTestScreen(),
-          "/AspectRatio": (context) => AspectRatioTestScreen()
+          "/AspectRatio": (context) => AspectRatioTestScreen(),
+          "/BaselineScreen": (context) => BaselineTestScreen(),
+          "/FittedBoxTestScreen": (context) => FittedBoxTestScreen()
         });
   }
 }

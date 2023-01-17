@@ -13,8 +13,9 @@ class _BaselineTestScreenState extends State<BaselineTestScreen> {
     return Container(
         color: Colors.yellow,
         child: Baseline(
-            baseline: 0,
-            baselineType: TextBaseline.alphabetic,
+            baseline: 200,
+            baselineType: TextBaseline
+                .alphabetic, //UTF32 karakterlerde baseline ayarlaması için kullanılıyor
             child: Container(
               width: 50,
               height: 50,
