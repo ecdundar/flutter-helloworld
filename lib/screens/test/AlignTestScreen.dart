@@ -14,7 +14,9 @@ class _AlignTestScreenState extends State<AlignTestScreen> {
         child: Container(
       color: Colors.yellow,
       child: Align(
-          alignment: Alignment.topCenter,
+          //alignment: Alignment.topCenter,
+          //alignment: Alignment(0.1, 0.1), //tam orta nokta 0.0 noktası
+          alignment: FractionalOffset(0, 0), // sol üst nokta 0,0 noktası
           child: Container(
             width: 100,
             height: 100,
