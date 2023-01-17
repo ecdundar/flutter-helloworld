@@ -7,6 +7,7 @@ import 'package:helloworld/screens/test/AspectRatioTestScreen.dart';
 import 'package:helloworld/screens/test/BaselineTestScreen.dart';
 import 'package:helloworld/screens/test/ContainerTestScreen.dart';
 import 'package:helloworld/screens/test/FittedBoxTestScreen.dart';
+import 'package:helloworld/screens/test/FractionalySizedBoxTestScreen.dart';
 import 'package:helloworld/screens/test/StackTestScreen.dart';
 import 'package:helloworld/screens/test/WrapTestScreen.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/BaselineScreen",
+        initialRoute: "/FractionalySizedBox",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
           "/AlignTest": (context) => AlignTestScreen(),
           "/AspectRatio": (context) => AspectRatioTestScreen(),
           "/BaselineScreen": (context) => BaselineTestScreen(),
-          "/FittedBoxTestScreen": (context) => FittedBoxTestScreen()
+          "/FittedBoxTestScreen": (context) => FittedBoxTestScreen(),
+          "/FractionalySizedBox": (context) => FractionalySizedBoxTestScreen()
         });
   }
 }
