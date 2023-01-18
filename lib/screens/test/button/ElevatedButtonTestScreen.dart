@@ -34,8 +34,20 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                       onPressed: () {
                         print('Butona tıklandı');
                       },
-                      icon: Icon(Icons.account_box),
-                      label: Text('Icon Elevated Button'))
+                      icon: Icon(Icons.account_box,
+                          color: Colors.yellow, size: 50),
+                      label: Text('Icon Elevated Button')),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                      onPressed: () {
+                        print('tıklandı');
+                      },
+                      style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all(Colors.white),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.purple)),
+                      child: Text('Styled Button'))
                 ],
               ))),
     );
