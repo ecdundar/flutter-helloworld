@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:helloworld/extensions/StringExtensions.dart';
+import 'package:helloworld/helpers/AlertHelper.dart';
 
 class AlertTestScreen extends StatefulWidget {
   const AlertTestScreen({super.key});
@@ -43,7 +44,8 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                 SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
-                      showBasicAlert(context);
+                      //showBasicAlert(context);
+                      AlertHelper.MesajGoster(context, "Başlık", "Mesaj");
                     },
                     child: Text("Show Basic Alert")),
                 SizedBox(height: 20),
@@ -80,26 +82,7 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
             )));
   }
 
-  void showBasicAlert(BuildContext context) {
-    var dialog = new AlertDialog(
-      title: Text("Alert Title"),
-      content: Text("Alert mesaj içeriği lorem ipsum"),
-      actions: [
-        TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text("OK"))
-      ],
-    );
-
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return dialog;
-        });
-  }
+  void showBasicAlert(BuildContext context) {}
 
   void showYesNoDialog(BuildContext context) {
     var dialog = new AlertDialog(
