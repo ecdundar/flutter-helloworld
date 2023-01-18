@@ -9,6 +9,7 @@ class ElevatedButtonTestScreen extends StatefulWidget {
 }
 
 class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
+  bool _isVisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,20 +24,24 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
+                        _isVisible = !_isVisible;
+                        setState(() {});
                         print("Butona basıldı");
                       },
                       onLongPress: () {
                         print("Butona uzun basıldı");
                       },
-                      child: Text("Basic Elevated Button")),
+                      child: Text("Button 1")),
                   SizedBox(height: 20),
-                  ElevatedButton.icon(
-                      onPressed: () {
-                        print('Butona tıklandı');
-                      },
-                      icon: Icon(Icons.account_box,
-                          color: Colors.yellow, size: 50),
-                      label: Text('Icon Elevated Button')),
+                  _isVisible == false
+                      ? Container()
+                      : ElevatedButton.icon(
+                          onPressed: () {
+                            print('Butona tıklandı');
+                          },
+                          icon: Icon(Icons.account_box,
+                              color: Colors.yellow, size: 50),
+                          label: Text('Button 2')),
                   SizedBox(height: 20),
                   ElevatedButton(
                       onPressed: () {
