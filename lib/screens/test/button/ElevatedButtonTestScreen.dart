@@ -62,7 +62,18 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                       style: ButtonStyle(
                           shadowColor: MaterialStateProperty.all(Colors.green),
                           elevation: MaterialStateProperty.all(8)),
-                      child: Text('Shadow Elevated Button'))
+                      child: Text('Shadow Elevated Button')),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                      onPressed: () {
+                        print('Shadow button tıklandı');
+                      },
+                      style: ButtonStyle(
+                          side: MaterialStateProperty.all(
+                              BorderSide(color: Colors.red, width: 2)),
+                          shadowColor: MaterialStateProperty.all(Colors.green),
+                          elevation: MaterialStateProperty.all(8)),
+                      child: Text('Bordered Button'))
                 ],
               ))),
     );
