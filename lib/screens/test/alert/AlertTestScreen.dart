@@ -49,7 +49,13 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       showYesNoDialog(context);
                     },
-                    child: Text("Show Yes No Alert"))
+                    child: Text("Show Yes No Alert")),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      showChoiceDialog(context);
+                    },
+                    child: Text("Show Choice Dialog"))
               ],
             )));
   }
@@ -98,6 +104,47 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
     showDialog(
         context: context,
         barrierDismissible: false,
+        builder: (BuildContext context) {
+          return dialog;
+        });
+  }
+
+  List<String> listeDon() {
+    var listItems = new List<String>.empty(
+        growable: true); //growable true yaparsak yeni nesne eklenebilir.
+    listItems.add("Seçenek 1");
+    listItems.add("Seçenek 2");
+    listItems.add("Seçenek 3");
+    return listItems;
+  }
+
+  var selectedItem = "Seçenek 2";
+  void showChoiceDialog(BuildContext context) {
+    var liste = listeDon();
+    var dialog = new AlertDialog(
+      title: Text("Alert Title"),
+      content: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: liste
+              .map((e) => RadioListTile(
+                  title: Text(e),
+                  value: e,
+                  selected: selectedItem == e,
+                  groupValue: selectedItem,
+                  onChanged: (value) {
+                    Navigator.of(context).pop();
+                  }))
+              .toList(),
+        ),
+      ),
+      actions: [],
+    );
+
+    showDialog(
+        context: context,
+        barrierDismissible: true,
         builder: (BuildContext context) {
           return dialog;
         });
