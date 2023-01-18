@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -165,5 +166,36 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
         });
   }
 
-  void showBottomSheetDialog(BuildContext context) {}
+  void showBottomSheetDialog(BuildContext context) {
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) => CupertinoActionSheet(
+              message: Text('Message'),
+              actions: [
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text("Action 1")),
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text("Action 2")),
+                CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text("Action 3"))
+              ],
+              cancelButton: CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    "Vazgeç",
+                    style: TextStyle(color: Colors.red),
+                  )),
+            ));
+  }
 }
