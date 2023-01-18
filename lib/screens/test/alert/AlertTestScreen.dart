@@ -31,17 +31,25 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                           fontSize: 16.0);
                     },
                     child: Text("Toast Deneme")),
+                SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text("Snackbar Test")));
                     },
                     child: Text("Snackbar Test")),
+                SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
                       showBasicAlert(context);
                     },
-                    child: Text("Show Basic Alert"))
+                    child: Text("Show Basic Alert")),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      showYesNoDialog(context);
+                    },
+                    child: Text("Show Yes No Alert"))
               ],
             )));
   }
@@ -61,6 +69,35 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
 
     showDialog(
         context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return dialog;
+        });
+  }
+
+  void showYesNoDialog(BuildContext context) {
+    var dialog = new AlertDialog(
+      title: Text("Alert Title"),
+      content: Text("Alert mesaj içeriği lorem ipsum"),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              //yesIslemYap();
+            },
+            child: Text("YES")),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              //noIslemYap();
+            },
+            child: Text("NO"))
+      ],
+    );
+
+    showDialog(
+        context: context,
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return dialog;
         });
