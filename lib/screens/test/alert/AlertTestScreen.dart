@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:helloworld/extensions/StringExtensions.dart';
 
 class AlertTestScreen extends StatefulWidget {
   const AlertTestScreen({super.key});
@@ -201,7 +202,7 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: Text("Action 3"))
+                    child: "Action 3".toTextWidget())
               ],
               cancelButton: CupertinoActionSheetAction(
                   onPressed: () {
@@ -209,7 +210,7 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                   },
                   child: Text(
                     "Vazgeç",
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: "#567189".toColor()),
                   )),
             ));
   }
