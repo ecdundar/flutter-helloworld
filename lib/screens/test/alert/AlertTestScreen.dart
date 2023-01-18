@@ -36,8 +36,33 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text("Snackbar Test")));
                     },
-                    child: Text("Snackbar Test"))
+                    child: Text("Snackbar Test")),
+                ElevatedButton(
+                    onPressed: () {
+                      showBasicAlert(context);
+                    },
+                    child: Text("Show Basic Alert"))
               ],
             )));
+  }
+
+  void showBasicAlert(BuildContext context) {
+    var dialog = new AlertDialog(
+      title: Text("Alert Title"),
+      content: Text("Alert mesaj içeriği lorem ipsum"),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("OK"))
+      ],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return dialog;
+        });
   }
 }
