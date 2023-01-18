@@ -62,7 +62,13 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       showBottomSheetDialog(context);
                     },
-                    child: Text("Show Bottom Sheet Dialog"))
+                    child: Text("Show Bottom Sheet Dialog")),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      showIosStyleDialog(context);
+                    },
+                    child: Text("Show IOS Style Dialog"))
               ],
             )));
   }
@@ -176,7 +182,10 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: Text("Action 1")),
+                    child: Text(
+                      "Action 1",
+                      style: TextStyle(color: Colors.green),
+                    )),
                 CupertinoActionSheetAction(
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -196,6 +205,33 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     "Vazgeç",
                     style: TextStyle(color: Colors.red),
                   )),
+            ));
+  }
+
+  void showIosStyleDialog(BuildContext context) {
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) => CupertinoAlertDialog(
+              title: Text("Başlık"),
+              content: Text("İçerik"),
+              actions: [
+                CupertinoDialogAction(
+                  isDefaultAction: true,
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("Yes"),
+                ),
+                CupertinoDialogAction(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    "No",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                )
+              ],
             ));
   }
 }
