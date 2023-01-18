@@ -46,7 +46,12 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                           foregroundColor:
                               MaterialStateProperty.all(Colors.white),
                           backgroundColor:
-                              MaterialStateProperty.all(Colors.purple)),
+                              MaterialStateProperty.resolveWith((states) {
+                            if (states.contains(MaterialState.pressed)) {
+                              return Colors.green;
+                            }
+                            return Colors.purple;
+                          })),
                       child: Text('Styled Button'))
                 ],
               ))),
