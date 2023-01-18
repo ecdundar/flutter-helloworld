@@ -12,7 +12,7 @@ class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Elevated Test')),
+      appBar: AppBar(title: Text('Outlined Test')),
       body: Padding(
           padding: EdgeInsets.all(20),
           child: Container(
@@ -28,7 +28,7 @@ class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
                       onLongPress: () {
                         print("Butona uzun basıldı");
                       },
-                      child: Text("Basic Elevated Button")),
+                      child: Text("Basic Outlined Button")),
                   SizedBox(height: 20),
                   OutlinedButton.icon(
                       onPressed: () {
@@ -36,7 +36,7 @@ class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
                       },
                       icon: Icon(Icons.account_box,
                           color: Colors.yellow, size: 50),
-                      label: Text('Icon Elevated Button')),
+                      label: Text('Icon Outlined Button')),
                   SizedBox(height: 20),
                   OutlinedButton(
                       onPressed: () {
@@ -62,7 +62,7 @@ class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
                       style: ButtonStyle(
                           shadowColor: MaterialStateProperty.all(Colors.green),
                           elevation: MaterialStateProperty.all(8)),
-                      child: Text('Shadow Elevated Button')),
+                      child: Text('Shadow Outlined Button')),
                   SizedBox(height: 20),
                   OutlinedButton(
                       onPressed: () {
