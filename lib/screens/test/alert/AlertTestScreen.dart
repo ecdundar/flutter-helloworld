@@ -16,20 +16,28 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
           title: Text("Flutter Alerts"),
         ),
         body: Container(
-            child: Row(
-          children: [
-            TextButton(
-                onPressed: () {
-                  Fluttertoast.showToast(
-                      msg: "Deneme Toast Mesajı",
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.BOTTOM,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.white,
-                      fontSize: 16.0);
-                },
-                child: Text("Toast Deneme"))
-          ],
-        )));
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextButton(
+                    onPressed: () {
+                      Fluttertoast.showToast(
+                          msg: "Deneme Toast Mesajı",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0);
+                    },
+                    child: Text("Toast Deneme")),
+                ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Snackbar Test")));
+                    },
+                    child: Text("Snackbar Test"))
+              ],
+            )));
   }
 }
