@@ -34,7 +34,7 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                       child: Text("Button 1")),
                   SizedBox(height: 20),
                   _isVisible == false
-                      ? Container()
+                      ? Container(height: 50)
                       : ElevatedButton.icon(
                           onPressed: () {
                             print('Butona tıklandı');
@@ -43,22 +43,24 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                               color: Colors.yellow, size: 50),
                           label: Text('Button 2')),
                   SizedBox(height: 20),
-                  ElevatedButton(
-                      onPressed: () {
-                        print('tıklandı');
-                      },
-                      style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          backgroundColor:
-                              MaterialStateProperty.resolveWith((states) {
-                            //Butona tıklandığında yeşil renk yapması için eklendi
-                            if (states.contains(MaterialState.pressed)) {
-                              return Colors.blueGrey;
-                            }
-                            return Colors.purple;
-                          })),
-                      child: Text('Styled Button')),
+                  Visibility(
+                      visible: _isVisible,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            print('tıklandı');
+                          },
+                          style: ButtonStyle(
+                              foregroundColor:
+                                  MaterialStateProperty.all(Colors.white),
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith((states) {
+                                //Butona tıklandığında yeşil renk yapması için eklendi
+                                if (states.contains(MaterialState.pressed)) {
+                                  return Colors.blueGrey;
+                                }
+                                return Colors.purple;
+                              })),
+                          child: Text('Button 3'))),
                   SizedBox(height: 20),
                   ElevatedButton(
                       onPressed: () {
