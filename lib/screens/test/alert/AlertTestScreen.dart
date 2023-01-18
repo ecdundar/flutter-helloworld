@@ -53,7 +53,7 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       showYesNoDialog(context);
                     },
-                    child: Text("Show Yes No Alert")),
+                    child: const Text("Show Yes No Alert")),
                 SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
