@@ -8,7 +8,6 @@ class OffstageScreenTest extends StatefulWidget {
 }
 
 class _OffstageScreenTestState extends State<OffstageScreenTest> {
-  bool _isVisible = true;
   @override
   Widget build(BuildContext context) {
     return Container(
