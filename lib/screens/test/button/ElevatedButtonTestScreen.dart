@@ -14,7 +14,6 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
     return Scaffold(
       appBar: AppBar(title: Text('Elevated Test')),
       body: Container(
-          width: 200,
           color: Colors.yellow,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
