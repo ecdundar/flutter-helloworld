@@ -55,7 +55,13 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       showChoiceDialog(context);
                     },
-                    child: Text("Show Choice Dialog"))
+                    child: Text("Show Choice Dialog")),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      showBottomSheetDialog(context);
+                    },
+                    child: Text("Show Bottom Sheet Dialog"))
               ],
             )));
   }
@@ -118,8 +124,8 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
     return listItems;
   }
 
-  var selectedItem = "Seçenek 2";
   void showChoiceDialog(BuildContext context) {
+    var selectedItem = "Seçenek 2";
     var liste = listeDon();
     var dialog = new AlertDialog(
       title: Text("Alert Title"),
@@ -134,12 +140,21 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                   selected: selectedItem == e,
                   groupValue: selectedItem,
                   onChanged: (value) {
-                    Navigator.of(context).pop();
+                    //Navigator.of(context).pop();
+                    selectedItem = e;
+                    setState(() {});
                   }))
               .toList(),
         ),
       ),
-      actions: [],
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              //yesIslemYap();
+            },
+            child: Text("UYGULA"))
+      ],
     );
 
     showDialog(
@@ -149,4 +164,6 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
           return dialog;
         });
   }
+
+  void showBottomSheetDialog(BuildContext context) {}
 }
