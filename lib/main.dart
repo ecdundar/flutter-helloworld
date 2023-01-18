@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/Elevated",
+        initialRoute: "/Alert",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),

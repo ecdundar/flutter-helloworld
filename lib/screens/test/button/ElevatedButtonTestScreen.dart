@@ -24,6 +24,7 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
                 children: [
                   ElevatedButton(
                       onPressed: () {
+                        //Button 2 ve Button 3 ün tıklandığında gizlenip gösterilmesi için yapıldı.
                         _isVisible = !_isVisible;
                         setState(() {});
                         print("Butona basıldı");
