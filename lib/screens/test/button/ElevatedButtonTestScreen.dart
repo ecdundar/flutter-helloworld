@@ -13,18 +13,31 @@ class _ElevatedButtonTestScreenState extends State<ElevatedButtonTestScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Elevated Test')),
-      body: Container(
-          color: Colors.yellow,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    print("Basic Elevated Button Pressed");
-                  },
-                  child: Text("Basic Elevated Button"))
-            ],
-          )),
+      body: Padding(
+          padding: EdgeInsets.all(20),
+          child: Container(
+              color: Colors.yellow,
+              padding: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        print("Butona basıldı");
+                      },
+                      onLongPress: () {
+                        print("Butona uzun basıldı");
+                      },
+                      child: Text("Basic Elevated Button")),
+                  SizedBox(height: 20),
+                  ElevatedButton.icon(
+                      onPressed: () {
+                        print('Butona tıklandı');
+                      },
+                      icon: Icon(Icons.account_box),
+                      label: Text('Icon Elevated Button'))
+                ],
+              ))),
     );
   }
 }
