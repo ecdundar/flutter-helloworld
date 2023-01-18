@@ -5,6 +5,7 @@ import 'package:helloworld/screens/main/MainScreen.dart';
 import 'package:helloworld/screens/test/alert/AlertTestScreen.dart';
 import 'package:helloworld/screens/test/button/ElevatedButtonTestScreen.dart';
 import 'package:helloworld/screens/test/button/OutlinedButtonTestScreen.dart';
+import 'package:helloworld/screens/test/button/TextButtonTestScreen.dart';
 import 'package:helloworld/screens/test/layout/single/AlignTestScreen.dart';
 import 'package:helloworld/screens/test/layout/single/AspectRatioTestScreen.dart';
 import 'package:helloworld/screens/test/layout/single/BaselineTestScreen.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/Outlined",
+        initialRoute: "/TextButton",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
           "/Transform": (context) => TransformScreenTest(),
           "/Alert": (context) => AlertTestScreen(),
           "/Elevated": (context) => ElevatedButtonTestScreen(),
-          "/Outlined": ((context) => OutlinedButtonTestScreen())
+          "/Outlined": ((context) => OutlinedButtonTestScreen()),
+          "/TextButton": ((context) => TextButtonTestScreen())
         });
   }
 }

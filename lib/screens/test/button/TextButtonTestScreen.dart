@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
-class OutlinedButtonTestScreen extends StatefulWidget {
-  const OutlinedButtonTestScreen({super.key});
+class TextButtonTestScreen extends StatefulWidget {
+  const TextButtonTestScreen({super.key});
 
   @override
-  State<OutlinedButtonTestScreen> createState() =>
-      _OutlinedButtonTestScreenState();
+  State<TextButtonTestScreen> createState() => _TextButtonTestScreenState();
 }
 
-class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
+class _TextButtonTestScreenState extends State<TextButtonTestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Outlined Test')),
+      appBar: AppBar(title: Text('Text Test')),
       body: Padding(
           padding: EdgeInsets.all(20),
           child: Container(
@@ -21,24 +20,24 @@ class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  OutlinedButton(
+                  TextButton(
                       onPressed: () {
                         print("Butona basıldı");
                       },
                       onLongPress: () {
                         print("Butona uzun basıldı");
                       },
-                      child: Text("Basic Outlined Button")),
+                      child: Text("Basic Text Button")),
                   SizedBox(height: 20),
-                  OutlinedButton.icon(
+                  TextButton.icon(
                       onPressed: () {
                         print('Butona tıklandı');
                       },
                       icon:
                           Icon(Icons.account_box, color: Colors.red, size: 50),
-                      label: Text('Icon Outlined Button')),
+                      label: Text('Icon Text Button')),
                   SizedBox(height: 20),
-                  OutlinedButton(
+                  TextButton(
                       onPressed: () {
                         print('tıklandı');
                       },
@@ -55,16 +54,16 @@ class _OutlinedButtonTestScreenState extends State<OutlinedButtonTestScreen> {
                           })),
                       child: Text('Styled Button')),
                   SizedBox(height: 20),
-                  OutlinedButton(
+                  TextButton(
                       onPressed: () {
                         print('Shadow button tıklandı');
                       },
                       style: ButtonStyle(
                           shadowColor: MaterialStateProperty.all(Colors.green),
                           elevation: MaterialStateProperty.all(8)),
-                      child: Text('Shadow Outlined Button')),
+                      child: Text('Shadow Text Button')),
                   SizedBox(height: 20),
-                  OutlinedButton(
+                  TextButton(
                       onPressed: () {
                         print('Shadow button tıklandı');
                       },
