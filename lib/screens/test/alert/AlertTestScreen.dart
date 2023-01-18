@@ -68,7 +68,13 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                     onPressed: () {
                       showIosStyleDialog(context);
                     },
-                    child: Text("Show IOS Style Dialog"))
+                    child: Text("Show IOS Style Dialog")),
+                SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      showInputDialog(context);
+                    },
+                    child: Text("Show Input Dialog"))
               ],
             )));
   }
@@ -233,5 +239,42 @@ class _AlertTestScreenState extends State<AlertTestScreen> {
                 )
               ],
             ));
+  }
+
+  var kullaniciSifre = "";
+  void showInputDialog(BuildContext context) {
+    var dialog = new AlertDialog(
+      title: Text("Alert Title"),
+      content: Container(
+          height: 75,
+          child: Column(
+            children: [
+              TextField(
+                controller: TextEditingController(text: kullaniciSifre),
+                onChanged: (value) => kullaniciSifre = value.trim(),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), labelText: "Şifre"),
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
+              )
+            ],
+          )),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("OK"))
+      ],
+    );
+
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return dialog;
+        });
   }
 }
