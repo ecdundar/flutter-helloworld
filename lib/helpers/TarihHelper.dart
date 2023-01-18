@@ -15,4 +15,8 @@ class TarihHelper {
   static DateTime AddDays(DateTime tarih, int dayCount) {
     return tarih.add(Duration(days: dayCount));
   }
+
+  static DateTime getNow() {
+    return new DateTime.now();
+  }
 }
