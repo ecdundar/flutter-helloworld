@@ -11,4 +11,8 @@ class TarihHelper {
     var formatter = new DateFormat(format, 'tr');
     return formatter.parse(tarih);
   }
+
+  static DateTime AddDays(DateTime tarih, int dayCount) {
+    return tarih.add(Duration(days: dayCount));
+  }
 }
