@@ -21,17 +21,22 @@ class _ListTileListViewTestScreenState
             children: [
               ListTile(
                 title: Text("Satır 1"),
-                leading: Icon(Icons.home, color: Colors.red, size: 20),
+                leading: CircleAvatar(
+                    backgroundImage: AssetImage(
+                        'https://www.nicepng.com/png/full/186-1866063_dicks-out-for-harambe-sample-avatar.png')),
+                subtitle: Text("Satır 1 Açıklama"),
                 trailing: Text("..."),
               ),
               ListTile(
                 title: Text("Satır 2"),
                 leading: Icon(Icons.home, color: Colors.red, size: 20),
+                subtitle: Text("Satır 2 Açıklama"),
                 trailing: Text("..."),
               ),
               ListTile(
                 title: Text("Satır 3"),
                 leading: Icon(Icons.home, color: Colors.red, size: 20),
+                subtitle: Text("Satır 3 Açıklama"),
                 trailing: Text("..."),
               ),
             ],
