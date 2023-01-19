@@ -10,7 +10,7 @@ class UserTodoModel {
   UserTodoModel({this.userId, this.id, this.title, this.completed});
 
   UserTodoModel.fromJson(Map<String, dynamic> json) {
-    userId = int.parse(json['userId'] ?? "0");
+    userId = json['userId'];
     id = json['id'];
     title = json['title'];
     completed = json['completed'];
