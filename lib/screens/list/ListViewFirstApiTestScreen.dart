@@ -69,6 +69,8 @@ class _ListViewFirstApiTestScreenState
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                   onTap: () {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
                                     ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
                                             content: Text(MainListe[index]
