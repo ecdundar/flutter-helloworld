@@ -1,6 +1,5 @@
 //https://javiercbk.github.io/json_to_dart/ adresi üzerinden oluşturuldu.
 import 'package:flutter/material.dart';
-import 'package:helloworld/helpers/TarihHelper.dart';
 
 class UserTodoModel {
   int? userId;
