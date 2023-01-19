@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:helloworld/screens/list/BasicListViewTestScreen.dart';
 import 'package:helloworld/screens/list/ListTileListViewTestScreen.dart';
+import 'package:helloworld/screens/list/ListViewFirstApiTestScreen.dart';
 import 'package:helloworld/screens/login/LoginScreen.dart';
 import 'package:helloworld/screens/main/MainScreen.dart';
 import 'package:helloworld/screens/test/alert/AlertTestScreen.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: "/ListTileTest",
+        initialRoute: "/ListApiTest",
         builder: EasyLoading.init(),
         routes: {
           "/": (context) => LoginScreen(),
@@ -53,7 +54,8 @@ class MyApp extends StatelessWidget {
           "/Outlined": ((context) => OutlinedButtonTestScreen()),
           "/TextButton": ((context) => TextButtonTestScreen()),
           "/ListViewTest": ((context) => BasicListViewTestScreen()),
-          "/ListTileTest": ((context) => ListTileListViewTestScreen())
+          "/ListTileTest": ((context) => ListTileListViewTestScreen()),
+          "/ListApiTest": ((context) => ListViewFirstApiTestScreen())
         });
   }
 }
