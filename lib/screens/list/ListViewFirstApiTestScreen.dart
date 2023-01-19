@@ -82,7 +82,18 @@ class _ListViewFirstApiTestScreenState
                                       key: Key(index.toString()),
                                       direction: Axis.horizontal,
                                       startActionPane: ActionPane(
-                                          motion: ScrollMotion(), children: []),
+                                          motion: ScrollMotion(),
+                                          children: [
+                                            SlidableAction(
+                                                onPressed:
+                                                    (BuildContext context) {
+                                                  print('on view');
+                                                },
+                                                backgroundColor: Colors.blue,
+                                                foregroundColor: Colors.white,
+                                                icon: Icons.search,
+                                                label: 'View')
+                                          ]),
                                       endActionPane: ActionPane(
                                           motion: ScrollMotion(),
                                           children: [
