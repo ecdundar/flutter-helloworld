@@ -83,8 +83,6 @@ class _ListViewFirstApiTestScreenState
                                       direction: Axis.horizontal,
                                       startActionPane: ActionPane(
                                           motion: ScrollMotion(),
-                                          dismissible: DismissiblePane(
-                                              onDismissed: () {}),
                                           children: [
                                             SlidableAction(
                                                 onPressed:
@@ -97,13 +95,19 @@ class _ListViewFirstApiTestScreenState
                                                 label: 'View')
                                           ]),
                                       endActionPane: ActionPane(
-                                          dismissible: DismissiblePane(
-                                              onDismissed: () {}),
+                                          dismissible:
+                                              DismissiblePane(onDismissed: () {
+                                            //komple satırı slide yaptığımızda silme işlemini sağlıyor.
+                                            print('on delete');
+                                            MainListe.removeAt(index);
+                                            setState(() {});
+                                          }),
                                           motion: ScrollMotion(),
                                           children: [
                                             SlidableAction(
                                                 onPressed:
                                                     (BuildContext context) {
+                                                  //delete butonuna tıkladığımızda silme işlemi sağlıyor
                                                   print('on delete');
                                                   MainListe.removeAt(index);
                                                   setState(() {});
