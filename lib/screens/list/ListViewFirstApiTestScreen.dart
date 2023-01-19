@@ -83,6 +83,8 @@ class _ListViewFirstApiTestScreenState
                                       direction: Axis.horizontal,
                                       startActionPane: ActionPane(
                                           motion: ScrollMotion(),
+                                          dismissible: DismissiblePane(
+                                              onDismissed: () {}),
                                           children: [
                                             SlidableAction(
                                                 onPressed:
@@ -95,12 +97,16 @@ class _ListViewFirstApiTestScreenState
                                                 label: 'View')
                                           ]),
                                       endActionPane: ActionPane(
+                                          dismissible: DismissiblePane(
+                                              onDismissed: () {}),
                                           motion: ScrollMotion(),
                                           children: [
                                             SlidableAction(
                                                 onPressed:
                                                     (BuildContext context) {
                                                   print('on delete');
+                                                  MainListe.removeAt(index);
+                                                  setState(() {});
                                                 },
                                                 backgroundColor: Colors.red,
                                                 foregroundColor: Colors.white,
