@@ -55,13 +55,26 @@ class _ListViewFirstApiTestScreenState
       body: Visibility(
           visible: isListVisible,
           child: Container(
-              child: RefreshIndicator(
-                  onRefresh: refreshData,
-                  child: ListView.builder(
-                      itemCount: MainListe.length,
-                      itemBuilder: (context, index) {
-                        return MainListe[index].toView();
-                      })))),
+              child: Column(children: [
+            Expanded(
+                child: Container(
+                    child: RefreshIndicator(
+                        onRefresh: refreshData,
+                        child: ListView.builder(
+                            itemCount: MainListe.length,
+                            itemBuilder: (context, index) {
+                              return MainListe[index].toView();
+                            })))),
+            Container(
+              height: 30,
+              width: double.infinity,
+              color: Colors.yellow,
+              child: Text(
+                MainListe.length.toString(),
+                textAlign: TextAlign.center,
+              ),
+            )
+          ]))),
     );
   }
 }
