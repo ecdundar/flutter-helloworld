@@ -21,17 +21,17 @@ class _ListTileListViewTestScreenState
             children: [
               ListTile(
                 title: Text("Satır 1"),
-                leading: Icon(Icons.abc),
+                leading: Icon(Icons.home, color: Colors.red, size: 20),
                 trailing: Text("..."),
               ),
               ListTile(
                 title: Text("Satır 2"),
-                leading: Icon(Icons.abc),
+                leading: Icon(Icons.home, color: Colors.red, size: 20),
                 trailing: Text("..."),
               ),
               ListTile(
                 title: Text("Satır 3"),
-                leading: Icon(Icons.abc),
+                leading: Icon(Icons.home, color: Colors.red, size: 20),
                 trailing: Text("..."),
               ),
             ],
