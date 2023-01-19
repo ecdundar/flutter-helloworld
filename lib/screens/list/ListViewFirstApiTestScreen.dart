@@ -149,7 +149,7 @@ class _ListViewFirstApiTestScreenState
               width: double.infinity,
               color: Colors.yellow,
               child: Text(
-                MainListe.length.toString(),
+                "${EkranListesi.length.toString()} / ${MainListe.length.toString()}",
                 textAlign: TextAlign.center,
               ),
             )
