@@ -17,7 +17,9 @@ class ListApiService {
         List<dynamic> list = json.decode(response.body);
         var returnList = List<UserTodoModel>.from(
             list.map((e) => UserTodoModel.fromJson(e)));
-        return c.complete(returnList);
+        Future.delayed(Duration(seconds: 5)).then((value) {
+          return c.complete(returnList);
+        });
       } else {
         return c.completeError("Api üzerinden liste alınamadı.");
       }

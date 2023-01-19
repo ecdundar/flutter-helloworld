@@ -42,11 +42,16 @@ class _ListViewFirstApiTestScreenState
     return Scaffold(
       appBar: AppBar(title: Text("ListView API Test")),
       body: Container(
-          child: ListView.builder(
-              itemCount: MainListe.length,
-              itemBuilder: (context, index) {
-                return MainListe[index].toView();
-              })),
+          child: RefreshIndicator(
+              onRefresh: () {
+                //Listview i yukarıdan çektiğimizde yenilemesi için
+                refreshList();
+              },
+              child: ListView.builder(
+                  itemCount: MainListe.length,
+                  itemBuilder: (context, index) {
+                    return MainListe[index].toView();
+                  }))),
     );
   }
 }
