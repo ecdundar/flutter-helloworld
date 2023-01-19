@@ -60,10 +60,22 @@ class _ListViewFirstApiTestScreenState
                 child: Container(
                     child: RefreshIndicator(
                         onRefresh: refreshData,
-                        child: ListView.builder(
+                        child: ListView.separated(
+                            separatorBuilder: (c, index) => Divider(
+                                  height: 2,
+                                  color: Colors.grey,
+                                ),
                             itemCount: MainListe.length,
                             itemBuilder: (context, index) {
-                              return MainListe[index].toView();
+                              return GestureDetector(
+                                  onTap: () {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(MainListe[index]
+                                                .id
+                                                .toString())));
+                                  },
+                                  child: MainListe[index].toView());
                             })))),
             Container(
               height: 30,
