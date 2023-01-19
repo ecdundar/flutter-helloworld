@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:helloworld/models/list/UserToDoModel.dart';
 import 'package:helloworld/services/ListApiService.dart';
 
@@ -77,7 +78,25 @@ class _ListViewFirstApiTestScreenState
                                                 .id
                                                 .toString())));
                                   },
-                                  child: MainListe[index].toView());
+                                  child: Slidable(
+                                      key: Key(index.toString()),
+                                      direction: Axis.horizontal,
+                                      startActionPane: ActionPane(
+                                          motion: ScrollMotion(), children: []),
+                                      endActionPane: ActionPane(
+                                          motion: ScrollMotion(),
+                                          children: [
+                                            SlidableAction(
+                                                onPressed:
+                                                    (BuildContext context) {
+                                                  print('on delete');
+                                                },
+                                                backgroundColor: Colors.red,
+                                                foregroundColor: Colors.white,
+                                                icon: Icons.delete,
+                                                label: 'Delete')
+                                          ]),
+                                      child: MainListe[index].toView()));
                             })))),
             Container(
               height: 30,
