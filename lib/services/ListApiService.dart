@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:helloworld/models/list/UserToDoModel.dart';
-import 'package:http/http.dart' as http;s
+import 'package:http/http.dart' as http;
 
 class ListApiService {
   static ListApiService? _instance;
@@ -11,17 +11,17 @@ class ListApiService {
   Future getTodoListIsleminiBaslat() async {
     Completer c = new Completer();
     String myurl = "https://jsonplaceholder.typicode.com/todos";
-    http.get(Uri.parse(myurl), headers: {
-      'Accept': 'application/json'
-    }).then((response) {
+    http.get(Uri.parse(myurl), headers: {'Accept': 'application/json'}).then(
+        (response) {
       if (response.statusCode == 200) {
-          List<dynamic> list = json.decode(response.body);
-          var returnList = List<UserTodoModel>.from(list.map((e) => UserTodoModel.fromJson(e)));
-          return c.complete(returnList);
+        List<dynamic> list = json.decode(response.body);
+        var returnList = List<UserTodoModel>.from(
+            list.map((e) => UserTodoModel.fromJson(e)));
+        return c.complete(returnList);
       } else {
         return c.completeError("Api üzerinden liste alınamadı.");
       }
-    }).catchError((error){
+    }).catchError((error) {
       c.completeError("Api üzerinden liste alınamadı.");
     });
     return c.future;
