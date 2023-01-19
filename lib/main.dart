@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:helloworld/screens/list/ListViewTestScreen.dart';
+import 'package:helloworld/screens/list/BasicListViewTestScreen.dart';
 import 'package:helloworld/screens/login/LoginScreen.dart';
 import 'package:helloworld/screens/main/MainScreen.dart';
 import 'package:helloworld/screens/test/alert/AlertTestScreen.dart';
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           "/Elevated": (context) => ElevatedButtonTestScreen(),
           "/Outlined": ((context) => OutlinedButtonTestScreen()),
           "/TextButton": ((context) => TextButtonTestScreen()),
-          "/ListViewTest": ((context) => ListViewTestScreen())
+          "/ListViewTest": ((context) => BasicListViewTestScreen())
         });
   }
 }
