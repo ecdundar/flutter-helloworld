@@ -21,6 +21,7 @@ class _ListViewFirstApiTestScreenState
   }
 
   List<UserTodoModel> MainListe = List<UserTodoModel>.empty();
+  List<UserTodoModel> EkranListesi = List<UserTodoModel>.empty();
   void refreshList() {
     EasyLoading.show(status: 'Listeleniyor');
     isListVisible = false;
@@ -28,6 +29,8 @@ class _ListViewFirstApiTestScreenState
     ListApiService().getTodoListIsleminiBaslat().then((liste) {
       //Future işlem başarılı ise then çalışır.
       MainListe = liste;
+      EkranListesi = liste;
+      searchController.text = '';
       isListVisible = true;
       EasyLoading.dismiss();
       setState(() {});
@@ -46,8 +49,20 @@ class _ListViewFirstApiTestScreenState
     setState(() {});
   }
 
+  void processList() {
+    EkranListesi = new List<UserTodoModel>.empty(growable: true);
+    MainListe.forEach((item) {
+      if ((item.title ?? "").contains(searchController.text) ||
+          searchController.text.isEmpty) {
+        EkranListesi.add(item);
+      }
+    });
+    setState(() {});
+  }
+
   BuildContext? mainContext = null;
   bool isListVisible = false;
+  TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     mainContext = context;
@@ -57,6 +72,16 @@ class _ListViewFirstApiTestScreenState
           visible: isListVisible,
           child: Container(
               child: Column(children: [
+            TextField(
+                controller: searchController,
+                onChanged: ((value) {
+                  processList();
+                }),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Kayıt Ara',
+                    prefixIcon: Icon(Icons.badge_outlined),
+                    hintText: '')),
             Expanded(
                 child: Container(
                     child: RefreshIndicator(
@@ -66,7 +91,7 @@ class _ListViewFirstApiTestScreenState
                                   height: 2,
                                   color: Colors.grey,
                                 ),
-                            itemCount: MainListe.length,
+                            itemCount: EkranListesi.length,
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                   onTap: () {
@@ -100,7 +125,7 @@ class _ListViewFirstApiTestScreenState
                                             //komple satırı slide yaptığımızda silme işlemini sağlıyor.
                                             print('on delete');
                                             MainListe.removeAt(index);
-                                            setState(() {});
+                                            //setState(() {});
                                           }),
                                           motion: ScrollMotion(),
                                           children: [
@@ -117,7 +142,7 @@ class _ListViewFirstApiTestScreenState
                                                 icon: Icons.delete,
                                                 label: 'Delete')
                                           ]),
-                                      child: MainListe[index].toView()));
+                                      child: EkranListesi[index].toView()));
                             })))),
             Container(
               height: 30,
