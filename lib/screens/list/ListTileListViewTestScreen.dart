@@ -22,7 +22,7 @@ class _ListTileListViewTestScreenState
               ListTile(
                 title: Text("Satır 1"),
                 leading: CircleAvatar(
-                    backgroundImage: AssetImage(
+                    child: Image.network(
                         'https://www.nicepng.com/png/full/186-1866063_dicks-out-for-harambe-sample-avatar.png')),
                 subtitle: Text("Satır 1 Açıklama"),
                 trailing: Text("..."),
