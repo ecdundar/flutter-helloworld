@@ -17,7 +17,7 @@ class ListApiService {
         List<dynamic> list = json.decode(response.body);
         var returnList = List<UserTodoModel>.from(
             list.map((e) => UserTodoModel.fromJson(e)));
-        Future.delayed(Duration(seconds: 5)).then((value) {
+        Future.delayed(Duration(seconds: 2)).then((value) {
           return c.complete(returnList);
         });
       } else {

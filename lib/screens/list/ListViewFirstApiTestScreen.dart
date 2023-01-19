@@ -22,36 +22,46 @@ class _ListViewFirstApiTestScreenState
   List<UserTodoModel> MainListe = List<UserTodoModel>.empty();
   void refreshList() {
     EasyLoading.show(status: 'Listeleniyor');
+    isListVisible = false;
+    setState(() {});
     ListApiService().getTodoListIsleminiBaslat().then((liste) {
       //Future işlem başarılı ise then çalışır.
       MainListe = liste;
+      isListVisible = true;
       EasyLoading.dismiss();
       setState(() {});
     }).catchError((onError) {
       //Future hatalıysa catchError çalışır.
       EasyLoading.dismiss();
       EasyLoading.showError(onError.toString());
+      isListVisible = true;
+      setState(() {});
       //AlertHelper.MesajGoster(context, title, Mesaj)
     });
   }
 
+  Future<void> refreshData() async {
+    refreshList();
+    setState(() {});
+  }
+
   BuildContext? mainContext = null;
+  bool isListVisible = false;
   @override
   Widget build(BuildContext context) {
     mainContext = context;
     return Scaffold(
       appBar: AppBar(title: Text("ListView API Test")),
-      body: Container(
-          child: RefreshIndicator(
-              onRefresh: () {
-                //Listview i yukarıdan çektiğimizde yenilemesi için
-                refreshList();
-              },
-              child: ListView.builder(
-                  itemCount: MainListe.length,
-                  itemBuilder: (context, index) {
-                    return MainListe[index].toView();
-                  }))),
+      body: Visibility(
+          visible: isListVisible,
+          child: Container(
+              child: RefreshIndicator(
+                  onRefresh: refreshData,
+                  child: ListView.builder(
+                      itemCount: MainListe.length,
+                      itemBuilder: (context, index) {
+                        return MainListe[index].toView();
+                      })))),
     );
   }
 }
